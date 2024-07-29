@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Counter Program with js</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            height: 100vh;
+            width: full;
+        }
+
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            row-gap: 20px;
+            flex-direction: column;
+
+        }
+
+        section {
+            border: 2px solid whitesmoke;
+            display: flex;
+            flex-direction: column;
+            gap: 70px;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 50px;
+        }
+
+        .btn-cmn {
+            padding: 20px 30px;
+            border-radius: 5px;
+        }
+
+        .one {
+            background-color: greenyellow;
+        }
+
+        .two {
+            background-color: crimson;
+            color: whitesmoke;
+        }
+
+        .count {
+            color: cyan;
+            font-size: 80px;
+        }
+
+        .footer-div {
+            bottom: 0;
+            position: fixed;
+            color: greenyellow;
+            font-size: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>Counter</header>
+        <section>
+            <div class="count" id="count"></div>
+            <div class="button-div">
+                <button id="inc_btn" class="one btn-cmn" onclick="inc_dec_function(1)">Increment</button>
+                <button id="dec_btn" class="two btn-cmn" onclick="inc_dec_function(2)">Decrement</button>
+            </div>
+
+        </section>
+        <footer class="footer-div">&copy;Rehan Uddin Reserved all rights.</footer>
+    </main>
+
+    <script>
+    let counter_value=localStorage.getItem("stored_value") || 0;
+    document.getElementById('count').innerText=counter_value;
+        function inc_dec_function(type) {
+            
+            //console.log(counter_value);
+            
+            let inc_dec_value;
+            
+            if (type == 1) {
+                inc_dec_value=++counter_value;
+                document.getElementById('count').innerText=inc_dec_value;
+                localStorage.setItem('stored_value',inc_dec_value);
+                //console.log(counter_value);
+               
+
+            }
+            else {
+                if(counter_value!=0){
+                    inc_dec_value=--counter_value;
+                    document.getElementById('count').innerText=inc_dec_value;
+                localStorage.setItem('stored_value',inc_dec_value);
+
+            }
+
+            }
+        }
+    </script>
+</body>
+
+</html>
